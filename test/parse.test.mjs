@@ -41,6 +41,14 @@ test("parses multi-space separated name and quantity", () => {
   assert.deepEqual(items, [{ name: "Fire Shard", quantity: 12 }]);
 });
 
+test("explicit trailing xN wins over a leading stack count", () => {
+  const { items } = parseList("1 Oak Lumber x 6\n3x Iron Ore × 2");
+  assert.deepEqual(items, [
+    { name: "Oak Lumber", quantity: 6 },
+    { name: "Iron Ore", quantity: 2 },
+  ]);
+});
+
 test("plain item line defaults to quantity 1", () => {
   const { items } = parseList("Cloud Clump");
   assert.deepEqual(items, [{ name: "Cloud Clump", quantity: 1 }]);

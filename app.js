@@ -120,8 +120,10 @@ function render() {
         }
         catSelect.addEventListener("change", () => {
           const overrides = { ...(state.categoryOverrides || {}), [item.name]: catSelect.value };
-          state = mergeState(state, { categoryOverrides: overrides });
-          state = mergeState(state, { items: categorize(els.inputArea.value) });
+          state = mergeState(state, {
+            categoryOverrides: overrides,
+            items: contextualize(els.inputArea.value).items,
+          });
           render();
         });
         li.appendChild(catSelect);

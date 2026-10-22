@@ -2,7 +2,7 @@
 
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
-import { extname, join, normalize } from "node:path";
+import { extname, join, normalize, relative, isAbsolute } from "node:path";
 
 const PORT = process.env.PORT || 5173;
 const ROOT = new URL(".", import.meta.url).pathname;
@@ -23,7 +23,8 @@ const server = createServer(async (req, res) => {
     let path = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
     if (path === "/") path = "/index.html";
     const filePath = normalize(join(ROOT, path));
-    if (!filePath.startsWith(ROOT)) {
+    const rel = relative(ROOT, filePath);
+    if (rel.startsWith("..") || isAbsolute(rel)) {
       res.writeHead(403);
       res.end("Forbidden");
       return;

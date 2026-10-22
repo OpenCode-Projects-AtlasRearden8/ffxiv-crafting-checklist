@@ -35,7 +35,13 @@ function lineToItem(line) {
 
   let match = QTY_BEFORE.exec(bare);
   if (match) {
-    return { name: cleanName(match[2]), quantity: normalizeNumber(match[1]) };
+    const rest = match[2].trim();
+    // "1 Oak Lumber x 6" — an explicit trailing ×N is the real per-craft count;
+    // a number that ties to a list entry is only a stack count.
+    const nested = QTY_AFTER.exec(rest);
+    return nested
+      ? { name: cleanName(nested[1]), quantity: normalizeNumber(nested[2]) }
+      : { name: cleanName(rest), quantity: normalizeNumber(match[1]) };
   }
 
   match = QTY_AFTER.exec(bare);
