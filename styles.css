@@ -1,0 +1,208 @@
+:root {
+  --bg: #14171e;
+  --card: #1d222c;
+  --card-soft: #232833;
+  --border: #2f3646;
+  --text: #e8ecf4;
+  --text-dim: #9aa5b8;
+  --accent: #e5a72e;
+  --accent-soft: #f3c45c;
+  --ok: #4fc37a;
+  font-size: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  color: var(--accent-soft);
+}
+
+.tagline {
+  margin: 4px 0 0;
+  color: var(--text-dim);
+}
+
+.progress-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 240px;
+  padding: 12px 14px;
+  background: var(--card-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.progress-pill .bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-pill .fill {
+  height: 100%;
+  width: 0;
+  background: var(--ok);
+  border-radius: 99px;
+  transition: width 0.25s ease;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.card h2 { margin: 0 0 10px; font-size: 1.15rem; }
+
+.card textarea {
+  width: 100%;
+  resize: vertical;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.card textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.primary { background: var(--accent); color: #1a1300; }
+.btn.primary:hover { background: var(--accent-soft); }
+.btn.secondary {
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+}
+.btn.secondary:hover { color: var(--text); border-color: var(--text-dim); }
+
+.head-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.footnote {
+  margin-top: 14px;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.foot {
+  margin-top: 28px;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.foot a { color: var(--accent-soft); }
+
+.groups { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+
+.group {
+  background: var(--card-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.group-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 8px;
+}
+
+.group-name {
+  font-weight: 700;
+  color: var(--accent-soft);
+}
+
+.group-count { font-size: 0.85rem; color: var(--text-dim); }
+
+.item-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+
+.item-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.item-list li:hover { background: rgba(255, 255, 255, 0.04); }
+
+.item-list input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--ok);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.item-list label {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex: 1;
+}
+
+.item-list .qty { color: var(--text-dim); }
+.item-list .cat-select { font-size: 0.85rem; padding: 3px 6px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+
+@media (max-width: 640px) {
+  .wrap { padding: 20px 12px 32px; }
+  .item-list label { flex-direction: column; align-items: flex-start; gap: 0; }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FFXIV Crafting Checklist — Asdale Dynamics, LLC</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <div>
+        <h1>FFXIV Crafting Checklist</h1>
+        <p class="tagline">Paste a materials list, get a gathering &amp; purchase plan. Everything stays in your browser.</p>
+      </div>
+      <div class="progress-pill" id="progressPill" hidden>
+        <span id="progressText">0 / 0</span>
+        <div class="bar"><div class="fill" id="progressFill"></div></div>
+      </div>
+    </header>
+
+    <section class="card" id="inputCard">
+      <div class="card-head">
+        <h2>Input</h2>
+        <div class="head-actions">
+          <button id="sampleBtn" class="btn secondary" type="button">Load sample list</button>
+          <button id="clearBtn" class="btn secondary" type="button">Clear progress</button>
+        </div>
+      </div>
+      <textarea id="inputArea" rows="9" spellcheck="false" placeholder="e.g.&#10;12 Iron Ore&#10;1 Oak Lumber x 6&#10;5 Fire Shard&#10;Yew Log x 3"></textarea>
+      <button id="buildBtn" class="btn primary" type="button">Build checklist</button>
+    </section>
+
+    <section class="card" id="outputCard" hidden>
+      <h2>Checklist</h2>
+      <ul class="groups" id="groups"></ul>
+      <div class="footnote">
+        <p><strong>About the grouping:</strong> "Your Call (Edit Me)" means the name alone wasn't enough to decide where an item comes from, so open the dropdown and set it. Use <em>Clear progress</em> to reset checkmarks, or edit the input and rebuild to start a new list.</p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>Made by <a href="https://dylanasdale.github.io" target="_blank" rel="noopener">Asdale Dynamics, LLC</a> — plain-English AI guides &amp; tools. Local-first: no accounts, no servers, no scraping; your list lives in this browser's local storage.</p>
+      <p>MIT licensed. Final Fantasy XIV is a trademark of Square Enix; this is an unofficial player tool.</p>
+    </footer>
+  </main>
+
+  <script type="module" id="appEntry" src="app.js"></script>
+</body>
+</html>

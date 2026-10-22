@@ -1,0 +1,16 @@
+{
+  "name": "ffxiv-crafting-checklist",
+  "version": "1.0.0",
+  "description": "Paste an FFXIV crafting materials list, get a grouped gathering/purchase checklist with progress saved locally. No servers, no scraping.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test test/"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "author": "Asdale Dynamics, LLC",
+  "private": true
+}
